@@ -1,1 +1,10 @@
-<h1>this is sristika shakya </h1>
+<% @ideas.each do |idea| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <blockquote>
+        <p><%= idea.description %></p>
+        <small>by <%= idea.author %></small>
+      </blockquote> 
+    </div>
+  </div>
+<% end %>
