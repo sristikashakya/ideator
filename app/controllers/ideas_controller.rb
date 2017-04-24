@@ -6,9 +6,9 @@ class IdeasController < ApplicationController
 	def create
 		@idea=Idea.create(idea_params)
 		if @idea.valid?
-			#implement later
+			flash[:success] = "you succesfully created your idea"
 		else
-			#implement later
+			flash[:alert] = "Oops!!something went wrong"
 		end
 		redirect_to root_path
 	end
@@ -19,14 +19,17 @@ class IdeasController < ApplicationController
 	def update
 		@idea=Idea.find(params[:id])
 		if @idea.update(idea_parms)
+			flash[:success] ="succesful"
 			redirect_to root_path
 		else
+			flash[:alert] ="try again!!"
 			redirect_to edit_idea_path(params[:id])
 		end	
 	end
 	def destroy
 		@idea = Idea.find(params[:id])
 		@idea.destroy
+		flash[:success] ="the idea was deleted succesfully!"
 		redirect_to root_path
 	end
 	private
