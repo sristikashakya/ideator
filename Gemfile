@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
+gem 'will_paginate', '~> 3.1.0'
 group :development, :test do
   gem 'sqlite3'
   # Use Puma as the app server

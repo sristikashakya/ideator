@@ -2,7 +2,7 @@
   <!-- Topper w/ logo -->
   <div class="row hidden-xs topper">
     <div class="col-xs-7 col-sm-7">
-      <a href="//convertify.io"><img am-TopLogo alt="SECUREVIEW"  src="https://i.ytimg.com/vi/8X2O1XZR2pE/maxresdefault.jpg" class="img-responsive nav-image"></a>
+      <%=link_to image_tag('123.jpg' , class: "nav-image") , root_path %>
     </div>
   </div> <!-- End Topper -->
   <!-- Navigation -->
@@ -25,26 +25,36 @@
           <ul class="nav navbar-nav js-nav-add-active-class">
             <li class="active"><%= link_to 'Home' , root_path %></li>
             <li><%= link_to 'About' , about_path %></li>
-            <li><%= link_to 'Random' , random_path %></li>
-            <li><a href="/training.html">Training</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-            <li class="visible-xs-block"><a href="/about.html">About Us</a></li>
-            <li class="visible-xs-block"><a href="">Inspire</a></li>
-            <li class="visible-xs-block"><a href="https://susteen7.zendesk.com/hc/en-us">Support</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="press-release.html">Press Release</a></li>
+            <li><%= link_to 'Inspire Me' , random_path %></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right hidden-xs">
-            <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="https://susteen7.zendesk.com/hc/en-us">Support</a>
+            <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="https://susteen7.zendesk.com/hc/en-us" data-toggle="modal" data-target="#myModal">Add ideas</a>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <%= simple_form_for Idea.new do |f| %>
+      <div class="modal-body">
+      <%= f.input :description %>
+      <%= f.input :author %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
