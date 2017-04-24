@@ -13,6 +13,10 @@ class IdeasController < ApplicationController
 		redirect_to root_path
 	end
 	def edit
+  		@idea = Idea.find(params[:id])
+	end
+
+	def update
 		@idea=Idea.find(params[:id])
 		if @idea.update(idea_parms)
 			redirect_to root_path
