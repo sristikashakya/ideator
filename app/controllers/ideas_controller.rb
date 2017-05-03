@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
 
 	def update
 		@idea=Idea.find(params[:id])
-		if @idea.update(idea_parms)
+		if @idea.update(idea_params)
 			flash[:success] ="succesful"
 			redirect_to root_path
 		else
